@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Sharvil Sagalgile | Offensive Security & Full-Stack Developer</title>
+    <meta name="description" content="Sharvil Sagalgile — offensive security learner, full-stack developer and ML engineer. Open to freelance projects, internships and collaborations.">
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://sharvil.site/">
+    <meta property="og:title"       content="Sharvil Sagalgile | Offensive Security & Full-Stack Developer">
+    <meta property="og:description" content="Sharvil Sagalgile — offensive security learner, full-stack developer and ML engineer. Open to freelance projects, internships and collaborations.">
+    <meta property="og:image"       content="https://sharvil.site/og-preview.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="Sharvil Sagalgile | Offensive Security & Full-Stack Developer">
+    <meta name="twitter:description" content="Offensive security learner, full-stack developer and ML engineer.">
+    <meta name="twitter:image"       content="https://sharvil.site/og-preview.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23060a0f'/%3E%3Ctext x='3' y='23' font-family='monospace' font-size='18' fill='%2300ff9c'%3E%3E_%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+    <div class="scanlines"></div>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+    <!-- Hex tooltip overlay -->
+    <div class="hex-tooltip" id="hex-tooltip">
+        <span class="ht-label" id="ht-label"></span>
+        <span class="ht-desc"  id="ht-desc"></span>
+    </div>
+
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#home" class="logo">
+                <span class="logo-bracket">[</span>
+                <span class="logo-name">SHARVIL</span>
+                <span class="logo-dot">.</span>
+                <span class="logo-surname">SH</span>
+                <span class="logo-bracket">]</span>
+            </a>
+            <button class="burger" id="burger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about"    data-text="About"    data-section="about">About</a></li>
+                <li><a href="#projects" data-text="Projects" data-section="projects">Projects</a></li>
+                <li><a href="#skills"   data-text="Skills"   data-section="skills">Skills</a></li>
+                <li><a href="#certs"    data-text="Certs"    data-section="certs">Certs</a></li>
+                <li><a href="#contact"  data-text="Contact"  data-section="contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="nav-progress" id="nav-progress">
+            <div class="nav-progress-fill" id="nav-progress-fill"></div>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="hero-content">
+
+            <div class="hero-status">
+                <span class="status-dot"></span>
+                <span class="status-text">SYSTEM ONLINE // INITIALIZING...</span>
+            </div>
+
+            <div class="hero-title-wrapper">
+                <p class="hero-pre">root@portfolio:~$ <span class="typed-cmd" id="typed-cmd"></span></p>
+                <h1 class="hero-name glitch" data-text="SHARVIL SAGALGILE">SHARVIL SAGALGILE</h1>
+                <div class="hero-roles">
+                    <span class="role-prefix">></span>
+                    <span class="role-text" id="role-text"></span>
+                    <span class="role-cursor">█</span>
+                </div>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-val">0x01</span>
+                    <span class="stat-label">Offensive Sec</span>
+                </div>
+                <div class="stat-sep">//</div>
+                <div class="stat">
+                    <span class="stat-val">0x02</span>
+                    <span class="stat-label">Full-Stack Dev</span>
+                </div>
+                <div class="stat-sep">//</div>
+                <div class="stat">
+                    <span class="stat-val">0x03</span>
+                    <span class="stat-label">ML Engineer</span>
+                </div>
+            </div>
+
+            <div class="hero-cta">
+                <a href="#projects" class="btn-primary">
+                    <span class="btn-prefix">$</span> view --projects
+                </a>
+                <a href="#contact" class="btn-secondary">
+                    <span class="btn-prefix">$</span> contact --me
+                </a>
+                <a href="./sharvil_resume.pdf" download class="btn-download" aria-label="Download Resume">
+                    <span class="btn-prefix">$</span> get --resume
+                </a>
+            </div>
+
+            <div class="hero-scroll">
+                <span>scroll_down</span>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+
+        <div class="hex-decoration">
+            <div class="hex-item h1" data-hex="h1"><span>TCP/IP</span></div>
+            <div class="hex-item h2" data-hex="h2"><span>XSS</span></div>
+            <div class="hex-item h3" data-hex="h3"><span>SQLi</span></div>
+            <div class="hex-item h4" data-hex="h4"><span>RECON</span></div>
+            <div class="hex-item h5" data-hex="h5"><span>ENUM</span></div>
+            <div class="hex-item h6" data-hex="h6"><span>CVE</span></div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-header">
+            <span class="section-num">01</span>
+            <h2>About Me</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="terminal">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="terminal-title">sharvil@portfolio — bash — 80x24</span>
+            </div>
+
+            <div class="terminal-body">
+
+                <div class="t-line">
+                    <span class="prompt"><span class="user">sharvil</span><span class="at">@</span><span class="host">portfolio</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span></span>
+                    <span class="cmd">whoami</span>
+                </div>
+                <p class="output">
+                    <span class="accent">Offensive security student</span> •
+                    <span class="accent">Pentesting learner</span> •
+                    <span class="accent">Freelance developer</span>
+                </p>
+
+                <div class="t-line">
+                    <span class="prompt"><span class="user">sharvil</span><span class="at">@</span><span class="host">portfolio</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span></span>
+                    <span class="cmd">cat</span> <span class="file">mindset.txt</span>
+                </div>
+                <p class="output">
+                    I don't just build systems — I <span class="accent">break them down</span> to understand how they really work.
+                    <span class="dim">What runs underneath, what fails, and what can be exploited.</span>
+                </p>
+
+                <div class="t-line">
+                    <span class="prompt"><span class="user">sharvil</span><span class="at">@</span><span class="host">portfolio</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span></span>
+                    <span class="cmd">cat</span> <span class="file">work.log</span>
+                </div>
+                <p class="output">
+                    Built <span class="accent">full-stack apps</span> with Django &amp; PostgreSQL.<br>
+                    Designed <span class="accent">ML pipelines</span> using XGBoost &amp; Scikit-learn.<br>
+                    Created <span class="accent">real-world websites</span> for freelance use.
+                </p>
+
+                <div class="t-line">
+                    <span class="prompt"><span class="user">sharvil</span><span class="at">@</span><span class="host">portfolio</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span></span>
+                    <span class="cmd">cat</span> <span class="file">security_journey.txt</span>
+                </div>
+                <p class="output">
+                    Exploring <span class="accent">networking</span>, <span class="accent">recon</span>, and <span class="accent">vulnerabilities</span>.<br>
+                    Learning how attackers think and how to <span class="warn">stay one step ahead</span>.
+                </p>
+
+                <div class="t-line">
+                    <span class="prompt"><span class="user">sharvil</span><span class="at">@</span><span class="host">portfolio</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span></span>
+                    <span class="cmd">echo</span> $goal
+                </div>
+                <p class="output">
+                    <span class="success">Become a penetration tester</span> and build systems that are <span class="accent">hard to break</span>.
+                </p>
+
+                <div class="t-line">
+                    <span class="prompt"><span class="user">sharvil</span><span class="at">@</span><span class="host">portfolio</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span></span>
+                    <span class="cmd">echo</span> $status
+                </div>
+                <p class="output">
+                    <span class="accent">Building</span> •
+                    <span class="warn">Breaking</span> •
+                    <span class="success">Learning</span> •
+                    <span class="accent">Repeating</span>
+                </p>
+
+                <div class="t-line">
+                    <span class="prompt"><span class="user">sharvil</span><span class="at">@</span><span class="host">portfolio</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span></span>
+                    <span class="cursor">█</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-header">
+            <span class="section-num">02</span>
+            <h2>Projects</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="projects-container">
+
+            <div class="project-card reverse" data-index="00">
+                <div class="project-text">
+                    <div class="project-meta">
+                        <span class="project-id">// PROJECT_00</span>
+                        <span class="project-status online">● LIVE</span>
+                    </div>
+                    <h3>Shellscape</h3>
+                    <p>Shellscape is a browser-based terminal game that teaches real-world cybersecurity skills through interactive, command-driven challenges. It simulates Linux, networking, cryptography, web, and forensics scenarios using a gamified SSH-like interface.</p>
+                    <p class="tech">HTML 5 • CSS • JavaScript</p>
+                    <div class="buttons">
+                        <a href="https://shellscape.sharvil.site/" target="_blank" rel="noopener">
+                            <span>↗</span> Live Demo
+                        </a>
+                        <a href="https://github.com/5H4RV1L/shellscape" target="_blank" rel="noopener">
+                            <span>⌥</span> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-preview">
+                    <div class="carousel-container">
+                        <div class="carousel">
+                            <div class="card"><img src="shellscape/lb.png" alt="Stargazer screen 1"></div>
+                            <div class="card"><img src="shellscape/ln.png" alt="Stargazer screen 2" loading="lazy"></div>
+                            <div class="card"><img src="shellscape/nt.png" alt="Stargazer screen 3" loading="lazy"></div>
+                            <div class="card"><img src="shellscape/cr.png" alt="Stargazer screen 4" loading="lazy"></div>
+                            <div class="card"><img src="shellscape/hp.png" alt="Stargazer screen 5" loading="lazy"></div>
+                        </div>
+                        <div class="controls">
+                            <button class="prevBtn" aria-label="Previous">◀</button>
+                            <button class="nextBtn" aria-label="Next">▶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-index="00">
+                <div class="project-text">
+                    <div class="project-meta">
+                        <span class="project-id">// PROJECT_00</span>
+                        <span class="project-status online">● LIVE</span>
+                    </div>
+                    <h3>Synapse</h3>
+                    <p>A full-stack social networking platform built with Django and PostgreSQL, featuring user authentication, profile management, post interactions (likes/dislikes), friend systems, and notifications. Designed for efficient data handling and smooth performance.</p>
+                    <p class="tech">Python (Django) • PostgreSQL • Authentication • HTML/CSS/JS</p>
+                    <div class="buttons">
+                        <a href="https://synapse-app.herokuapp.com/" target="_blank" rel="noopener">
+                            <span>↗</span> Live Demo
+                        </a>
+                        <a href="https://github.com/5H4RV1L/synapse" target="_blank" rel="noopener">
+                            <span>⌥</span> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-preview">
+                    <div class="carousel-container">
+                        <div class="carousel">
+                            <div class="card"><img src="synapse/pr.png"  alt="Synapse profile"></div>
+                            <div class="card"><img src="synapse/fd.png"  alt="Synapse feed"    loading="lazy"></div>
+                            <div class="card"><img src="synapse/sr.png"  alt="Synapse search"  loading="lazy"></div>
+                            <div class="card"><img src="synapse/gc.png"  alt="Synapse groups"  loading="lazy"></div>
+                            <div class="card"><img src="synapse/cp.png"  alt="Synapse chat"    loading="lazy"></div>
+                            <div class="card"><img src="synapse/dpr.png" alt="Synapse dark profile" loading="lazy"></div>
+                            <div class="card"><img src="synapse/dfd.png" alt="Synapse dark feed"    loading="lazy"></div>
+                            <div class="card"><img src="synapse/dsr.png" alt="Synapse dark search"  loading="lazy"></div>
+                            <div class="card"><img src="synapse/dgc.png" alt="Synapse dark groups"  loading="lazy"></div>
+                            <div class="card"><img src="synapse/dcp.png" alt="Synapse dark chat"    loading="lazy"></div>
+                        </div>
+                        <div class="controls">
+                            <button class="prevBtn" aria-label="Previous">◀</button>
+                            <button class="nextBtn" aria-label="Next">▶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reverse" data-index="01">
+                <div class="project-text">
+                    <div class="project-meta">
+                        <span class="project-id">// PROJECT_01</span>
+                        <span class="project-status wip">● WIP</span>
+                    </div>
+                    <h3>Stargazer</h3>
+                    <p>Full-stack ML pipeline using Flask, Scikit-learn, and XGBoost to classify exoplanets from CSV datasets. Implemented preprocessing, feature engineering, SMOTE for class imbalance, and 5-fold cross-validation, with a dynamic UI for training and predictions.</p>
+                    <p class="tech">Python (Flask) • XGBoost • Scikit-learn • Pandas • NumPy • HTML/CSS/JS</p>
+                    <div class="buttons">
+                        <a href="https://stargazer.sharvil.site/" target="_blank" rel="noopener">
+                            <span>↗</span> Live Demo
+                        </a>
+                        <a href="https://github.com/5H4RV1L/stargazer" target="_blank" rel="noopener">
+                            <span>⌥</span> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-preview">
+                    <div class="carousel-container">
+                        <div class="carousel">
+                            <div class="card"><img src="stargazer/hm.png" alt="Stargazer screen 1"></div>
+                            <div class="card"><img src="stargazer/fu.png" alt="Stargazer screen 2" loading="lazy"></div>
+                            <div class="card"><img src="stargazer/tr.png" alt="Stargazer screen 3" loading="lazy"></div>
+                            <div class="card"><img src="stargazer/pd.png" alt="Stargazer screen 4" loading="lazy"></div>
+                            <div class="card"><img src="stargazer/gd.png" alt="Stargazer screen 5" loading="lazy"></div>
+                            <div class="card"><img src="stargazer/fp.png" alt="Stargazer screen 6" loading="lazy"></div>
+                            <div class="card"><img src="stargazer/cn.png" alt="Stargazer screen 7" loading="lazy"></div>
+                        </div>
+                        <div class="controls">
+                            <button class="prevBtn" aria-label="Previous">◀</button>
+                            <button class="nextBtn" aria-label="Next">▶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-index="02">
+                <div class="project-text">
+                    <div class="project-meta">
+                        <span class="project-id">// PROJECT_02</span>
+                        <span class="project-status online"></span>
+                    </div>
+                    <h3>project V01D</h3>
+                    <p>A compact, menu-driven cybersecurity and hardware experimentation tool built using an ESP32, integrating Wi-Fi, Bluetooth (BLE), and Infrared capabilities into a single handheld device. The system provides multiple wireless testing and signal manipulation features, controlled through a physical button interface and displayed on an OLED screen.</p>
+                    <p class="tech">ESP32 • Arduino (C++) • WiFi / esp_wifi • BLE (BLEDevice) • IRremoteESP8266 • WebServer • DNSServer • OLED UI (Adafruit SSD1306)</p>
+                    <div class="buttons">
+                        
+                        <a href="https://github.com/5H4RV1L/project_V01D" target="_blank" rel="noopener">
+                            <span>⌥</span> GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-preview">
+                    <div class="carousel-container">
+                        <div class="carousel">
+                            <div class="card"><img src="v01d/fr.jpg"  alt="V01D front"></div>
+                            <div class="card"><img src="v01d/fd.png"  alt="V01D menu"    loading="lazy"></div>
+    
+                        </div>
+                        <div class="controls">
+                            <button class="prevBtn" aria-label="Previous">◀</button>
+                            <button class="nextBtn" aria-label="Next">▶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-header">
+            <span class="section-num">03</span>
+            <h2>Skills</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="skills-wrapper">
+
+            <div class="skill-bars">
+                <div class="skill-group-label">// OFFENSIVE SECURITY</div>
+                <div class="skill-bar-item">
+                    <span class="sb-name">Network Recon</span>
+                    <div class="sb-track"><div class="sb-fill" data-pct="72"></div></div>
+                    <span class="sb-pct">72%</span>
+                </div>
+                <div class="skill-bar-item">
+                    <span class="sb-name">Web Vulnerabilities</span>
+                    <div class="sb-track"><div class="sb-fill" data-pct="65"></div></div>
+                    <span class="sb-pct">65%</span>
+                </div>
+                <div class="skill-bar-item">
+                    <span class="sb-name">Pentesting</span>
+                    <div class="sb-track"><div class="sb-fill" data-pct="55"></div></div>
+                    <span class="sb-pct">55%</span>
+                </div>
+
+                <div class="skill-group-label">// WEB DEVELOPMENT</div>
+                <div class="skill-bar-item">
+                    <span class="sb-name">Python / Django</span>
+                    <div class="sb-track"><div class="sb-fill sb-web" data-pct="88"></div></div>
+                    <span class="sb-pct">88%</span>
+                </div>
+                <div class="skill-bar-item">
+                    <span class="sb-name">HTML / CSS / JS</span>
+                    <div class="sb-track"><div class="sb-fill sb-web" data-pct="85"></div></div>
+                    <span class="sb-pct">85%</span>
+                </div>
+                <div class="skill-bar-item">
+                    <span class="sb-name">Flask / Node.js</span>
+                    <div class="sb-track"><div class="sb-fill sb-web" data-pct="75"></div></div>
+                    <span class="sb-pct">75%</span>
+                </div>
+
+                <div class="skill-group-label">// MACHINE LEARNING</div>
+                <div class="skill-bar-item">
+                    <span class="sb-name">Scikit-learn / XGBoost</span>
+                    <div class="sb-track"><div class="sb-fill sb-ml" data-pct="78"></div></div>
+                    <span class="sb-pct">78%</span>
+                </div>
+                <div class="skill-bar-item">
+                    <span class="sb-name">Pandas / NumPy</span>
+                    <div class="sb-track"><div class="sb-fill sb-ml" data-pct="82"></div></div>
+                    <span class="sb-pct">82%</span>
+                </div>
+            </div>
+
+            <div class="tool-grid">
+                <div class="tool-card" data-cat="sec">
+                    <div class="tool-icon tool-icon-text">[SEC]</div>
+                    <div class="tool-name">Cybersecurity</div>
+                    <div class="tool-tags">
+                        <span>Networking</span><span>Recon</span><span>XSS</span><span>SQLi</span><span>BurpSuite</span>
+                    </div>
+                </div>
+                <div class="tool-card" data-cat="dev">
+                    <div class="tool-icon tool-icon-text">[DEV]</div>
+                    <div class="tool-name">Languages</div>
+                    <div class="tool-tags">
+                        <span>Python</span><span>JavaScript</span><span>Java</span><span>Bash</span>
+                    </div>
+                </div>
+                <div class="tool-card" data-cat="dev">
+                    <div class="tool-icon tool-icon-text">[WEB]</div>
+                    <div class="tool-name">Web & Backend</div>
+                    <div class="tool-tags">
+                        <span>Django</span><span>Flask</span><span>Node.js</span><span>REST API</span>
+                    </div>
+                </div>
+                <div class="tool-card" data-cat="data">
+                    <div class="tool-icon tool-icon-text">[DB]</div>
+                    <div class="tool-name">Databases</div>
+                    <div class="tool-tags">
+                        <span>PostgreSQL</span><span>SQL</span>
+                    </div>
+                </div>
+                <div class="tool-card" data-cat="ml">
+                    <div class="tool-icon tool-icon-text">[ML]</div>
+                    <div class="tool-name">Machine Learning</div>
+                    <div class="tool-tags">
+                        <span>Scikit-learn</span><span>XGBoost</span><span>SMOTE</span>
+                    </div>
+                </div>
+                <div class="tool-card" data-cat="focus">
+                    <div class="tool-icon tool-icon-text">[FCS]</div>
+                    <div class="tool-name">Core Focus</div>
+                    <div class="tool-tags">
+                        <span>Offensive Sec</span><span>Backend</span><span>Freelance</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section id="certs">
+        <div class="section-header">
+            <span class="section-num">04</span>
+            <h2>Certifications</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <!-- ── SUBSECTION: LABS ── -->
+        <div class="certs-subsection-header">
+            <span class="css-bracket">[</span>
+            <span class="css-label">01</span>
+            <span class="css-bracket">]</span>
+            <span class="css-title">// LABS &amp; PLATFORMS</span>
+            <div class="css-line"></div>
+            <span class="css-hint">hover to reveal stats</span>
+        </div>
+
+        <div class="lab-cards-grid">
+
+            <!-- TryHackMe -->
+            <div class="lab-flip-card">
+                <div class="lab-flip-inner">
+                    <!-- FRONT -->
+                    <div class="lab-front thm-card">
+                        <div class="lab-logo-area">
+                            <svg class="lab-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="22" stroke="#88cc14" stroke-width="2" fill="none" opacity="0.3"/>
+                                <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="13" font-family="monospace" fill="#88cc14" font-weight="700">THM</text>
+                            </svg>
+                        </div>
+                        <div class="lab-name">TryHackMe</div>
+                        <div class="lab-url">tryhackme.com/p/isitv01d</div>
+                        <div class="lab-status active">● ACTIVE</div>
+                        <div class="lab-flip-hint">// hover for stats</div>
+                    </div>
+                    <!-- BACK -->
+                    <div class="lab-back thm-back">
+                        <div class="lab-back-title">TryHackMe</div>
+                        <div class="lab-back-stats">
+                            <div class="lb-stat">
+                                <span class="lb-val" id="thm-rooms">--</span>
+                                <span class="lb-label">Rooms Done</span>
+                            </div>
+                            <div class="lb-stat">
+                                <span class="lb-val" id="thm-rank">Top --</span>
+                                <span class="lb-label">Global Rank</span>
+                            </div>
+                            <div class="lb-stat">
+                                <span class="lb-val" id="thm-streak">--d</span>
+                                <span class="lb-label">Streak</span>
+                            </div>
+                        </div>
+                        <a href="https://tryhackme.com/p/isitv01d" target="_blank" rel="noopener" class="lab-back-link">↗ View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HackTheBox -->
+            <div class="lab-flip-card">
+                <div class="lab-flip-inner">
+                    <div class="lab-front htb-card">
+                        <div class="lab-logo-area">
+                            <svg class="lab-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polygon points="24,4 44,16 44,32 24,44 4,32 4,16" stroke="#9fef00" stroke-width="2" fill="none" opacity="0.3"/>
+                                <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="10" font-family="monospace" fill="#9fef00" font-weight="700">HTB</text>
+                            </svg>
+                        </div>
+                        <div class="lab-name">HackTheBox</div>
+                        <div class="lab-url">app.hackthebox.com/profile/5H4RV1L</div>
+                        <div class="lab-status active">● ACTIVE</div>
+                        <div class="lab-flip-hint">// hover for stats</div>
+                    </div>
+                    <div class="lab-back htb-back">
+                        <div class="lab-back-title">HackTheBox</div>
+                        <div class="lab-back-stats">
+                            <div class="lb-stat">
+                                <span class="lb-val" id="htb-machines">--</span>
+                                <span class="lb-label">Machines</span>
+                            </div>
+                            <div class="lb-stat">
+                                <span class="lb-val" id="htb-rank">--</span>
+                                <span class="lb-label">Rank</span>
+                            </div>
+                            <div class="lb-stat">
+                                <span class="lb-val" id="htb-pts">--</span>
+                                <span class="lb-label">Points</span>
+                            </div>
+                        </div>
+                        <a href="https://profile.hackthebox.com/profile/019d3ba8-0c61-715c-96a6-cebbb1a78733" target="_blank" rel="noopener" class="lab-back-link">↗ View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PortSwigger -->
+            <div class="lab-flip-card">
+                <div class="lab-flip-inner">
+                    <div class="lab-front ps-card">
+                        <div class="lab-logo-area">
+                            <svg class="lab-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="6" y="6" width="36" height="36" rx="4" stroke="#ff6633" stroke-width="2" fill="none" opacity="0.3"/>
+                                <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-size="9.5" font-family="monospace" fill="#ff6633" font-weight="700">BSCP</text>
+                            </svg>
+                        </div>
+                        <div class="lab-name">PortSwigger</div>
+                        <div class="lab-url">portswigger.net/web-security</div>
+                        <div class="lab-status learning">● LEARNING</div>
+                        <div class="lab-flip-hint">// hover for stats</div>
+                    </div>
+                    <div class="lab-back ps-back">
+                        <div class="lab-back-title">PortSwigger</div>
+                        <div class="lab-back-stats">
+                            <div class="lb-stat">
+                                <span class="lb-val">--</span>
+                                <span class="lb-label">Labs Done</span>
+                            </div>
+                            <div class="lb-stat">
+                                <span class="lb-val">--</span>
+                                <span class="lb-label">Topics</span>
+                            </div>
+                            <div class="lb-stat">
+                                <span class="lb-val">--</span>
+                                <span class="lb-label">Level</span>
+                            </div>
+                        </div>
+                        <a href="https://portswigger.net/web-security" target="_blank" rel="noopener" class="lab-back-link">↗ Web Academy</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ── SUBSECTION: CERTIFICATES ── -->
+        <div class="certs-subsection-header">
+            <span class="css-bracket">[</span>
+            <span class="css-label">02</span>
+            <span class="css-bracket">]</span>
+            <span class="css-title">// CERTIFICATES</span>
+            <div class="css-line"></div>
+            <span class="css-hint">hover to view cert</span>
+        </div>
+
+        <div class="cert-flip-grid">
+
+            <!-- Full Stack Dev — EARNED -->
+            <div class="cert-flip-card">
+                <div class="cert-flip-inner">
+                    <!-- FRONT -->
+                    <div class="cert-flip-front cf-earned">
+                        <div class="cfr-id">// CERT_00</div>
+                        <div class="cfr-badge earned-badge">✓ EARNED</div>
+                        <div class="cfr-abbr">FSD</div>
+                        <div class="cfr-name">Full Stack Developer</div>
+                        <div class="cfr-issuer">A2Z IT Hub Pvt. Ltd.</div>
+                        <div class="cfr-tags">
+                            <span>Web Dev</span><span>Full-Stack</span><span>Certified</span>
+                        </div>
+                        <div class="cfr-hint">// hover to view</div>
+                    </div>
+                    <!-- BACK — certificate mockup -->
+                    <div class="cert-flip-back cf-earned-back">
+                        <div class="cert-doc">
+                            <div class="cert-doc-header">
+                                <div class="cert-doc-logo">A2Z IT HUB</div>
+                                <div class="cert-doc-sub">Pvt. Ltd.</div>
+                            </div>
+                            <div class="cert-doc-label">Certificate of Completion</div>
+                            <div class="cert-doc-presents">This certifies that</div>
+                            <div class="cert-doc-name">Sharvil Sagalgile</div>
+                            <div class="cert-doc-course">has successfully completed the<br><strong>Full Stack Developer</strong> program</div>
+                            <div class="cert-doc-footer">
+                                <span class="cert-doc-seal">◈</span>
+                                <span class="cert-doc-valid">Verified &amp; Issued</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- eJPT v2 — PURSUING -->
+            <div class="cert-flip-card">
+                <div class="cert-flip-inner">
+                    <div class="cert-flip-front cf-pursuing">
+                        <div class="cfr-id">// CERT_01</div>
+                        <div class="cfr-badge pursuing-badge">● PURSUING</div>
+                        <div class="cfr-abbr">eJPT<span class="cfr-abbr-v">v2</span></div>
+                        <div class="cfr-name">Junior Penetration Tester</div>
+                        <div class="cfr-issuer">INE Security (eLearnSecurity)</div>
+                        <div class="cfr-tags">
+                            <span>Pentesting</span><span>Networking</span><span>Web Attacks</span>
+                        </div>
+                        <div class="cfr-hint">// hover to preview</div>
+                    </div>
+                    <div class="cert-flip-back cf-pursuing-back">
+                        <div class="cert-doc cert-doc-locked">
+                            <div class="cert-doc-header">
+                                <div class="cert-doc-logo" style="color:#ff8a65;">INE SECURITY</div>
+                                <div class="cert-doc-sub">eLearnSecurity</div>
+                            </div>
+                            <div class="cert-doc-label" style="color:#ff8a65;">eJPT v2 Certification</div>
+                            <div class="cert-doc-presents">Candidate</div>
+                            <div class="cert-doc-name">Sharvil Sagalgile</div>
+                            <div class="cert-doc-course">Junior Penetration Tester<br><span class="cert-lock-status">⏳ In Progress</span></div>
+                            <div class="cert-doc-footer">
+                                <span class="cert-doc-seal" style="color:#ff8a65;">◈</span>
+                                <span class="cert-doc-valid" style="color:#ff8a65;">Pending Completion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ISC2 CC — PURSUING -->
+            <div class="cert-flip-card">
+                <div class="cert-flip-inner">
+                    <div class="cert-flip-front cf-pursuing">
+                        <div class="cfr-id">// CERT_02</div>
+                        <div class="cfr-badge pursuing-badge">● PURSUING</div>
+                        <div class="cfr-abbr">CC</div>
+                        <div class="cfr-name">Certified in Cybersecurity</div>
+                        <div class="cfr-issuer">ISC²</div>
+                        <div class="cfr-tags">
+                            <span>Security Principles</span><span>Network Sec</span><span>IAM</span>
+                        </div>
+                        <div class="cfr-hint">// hover to preview</div>
+                    </div>
+                    <div class="cert-flip-back cf-pursuing-back">
+                        <div class="cert-doc cert-doc-locked">
+                            <div class="cert-doc-header">
+                                <div class="cert-doc-logo" style="color:#ff8a65;">ISC²</div>
+                                <div class="cert-doc-sub">International Information System Security</div>
+                            </div>
+                            <div class="cert-doc-label" style="color:#ff8a65;">Certified in Cybersecurity</div>
+                            <div class="cert-doc-presents">Candidate</div>
+                            <div class="cert-doc-name">Sharvil Sagalgile</div>
+                            <div class="cert-doc-course">CC — Entry-level Cybersecurity<br><span class="cert-lock-status">⏳ In Progress</span></div>
+                            <div class="cert-doc-footer">
+                                <span class="cert-doc-seal" style="color:#ff8a65;">◈</span>
+                                <span class="cert-doc-valid" style="color:#ff8a65;">Pending Completion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="contact">
+        <div class="section-header">
+            <span class="section-num">05</span>
+            <h2>Contact Me</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="contact-wrapper">
+
+            <div class="contact-left">
+                <p class="contact-intro">
+                    Got a project, a collaboration idea, or just want to talk hacking?<br><br>
+                    Drop me a line — I don't bite. <span class="accent">(systems do though.)</span>
+                </p><br><br>
+
+                <div class="contact-links">
+                    <a href="mailto:sharvilsagalgile@gmail.com?subject=Portfolio%20Inquiry" class="contact-link">
+                        <span class="cl-icon">✉</span>
+                        <div>
+                            <span class="cl-label">Email</span>
+                            <span class="cl-val">sharvilsagalgile@gmail.com</span>
+                        </div>
+                        <span class="cl-arrow">→</span>
+                    </a>
+                    <a href="mailto:sharvilsagalgile7@gmail.com?subject=Portfolio%20Inquiry" class="contact-link">
+                        <span class="cl-icon">✉</span>
+                        <div>
+                            <span class="cl-label">Alternate Email</span>
+                            <span class="cl-val">sharvilsagalgile7@gmail.com</span>
+                        </div>
+                        <span class="cl-arrow">→</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sharvil-sagalgile-b5a539286/" target="_blank" rel="noopener" class="contact-link">
+                        <span class="cl-icon">in</span>
+                        <div>
+                            <span class="cl-label">LinkedIn</span>
+                            <span class="cl-val">/in/sharvil-sagalgile</span>
+                        </div>
+                        <span class="cl-arrow">→</span>
+                    </a>
+                    <a href="https://github.com/5H4RV1L" target="_blank" rel="noopener" class="contact-link">
+                        <span class="cl-icon">⌥</span>
+                        <div>
+                            <span class="cl-label">GitHub</span>
+                            <span class="cl-val">github.com/5H4RV1L</span>
+                        </div>
+                        <span class="cl-arrow">→</span>
+                    </a>
+                    <a href="https://www.instagram.com/this_aint_void/" target="_blank" rel="noopener" class="contact-link">
+                        <span class="cl-icon">◎</span>
+                        <div>
+                            <span class="cl-label">Instagram</span>
+                            <span class="cl-val">@this_aint_void</span>
+                        </div>
+                        <span class="cl-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-right">
+                <div class="contact-terminal">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="terminal-title">contact.sh — bash</span>
+                    </div>
+                    <div class="terminal-body contact-body">
+
+                        <!-- ── ping / availability block ── -->
+                        <div class="t-line">
+                            <span class="prompt"><span class="user">you</span><span class="at">@</span><span class="host">internet</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span></span>
+                            <span class="cmd">ping sharvil.site</span>
+                        </div>
+                        <p class="output">PING sharvil.site: 56 bytes of data.</p>
+                        <p class="output success">64 bytes: icmp_seq=1 ttl=64 time=<span class="ping-time">--</span> ms</p>
+                        <p class="output dim"># I respond within 24 hours.</p>
+                        <div class="t-line">
+                            <span class="prompt"><span class="user">you</span><span class="at">@</span><span class="host">internet</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span></span>
+                            <span class="cmd">cat</span> <span class="file">availability.txt</span>
+                        </div>
+                        <p class="output">Open to: <span class="accent">freelance projects</span> • <span class="accent">internships</span> • <span class="accent">collabs</span></p>
+
+                        <!-- ── divider ── -->
+                        <div class="terminal-divider"><span>// send_message</span></div>
+
+                        <!-- ── merged form block ── -->
+                        <div id="form-view">
+                            <form id="contact-form" novalidate>
+                                <div class="form-field">
+                                    <label class="form-prompt" for="f-name">
+                                        <span class="user">you</span><span class="at">@</span><span class="host">internet</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span>
+                                        <span class="cmd">read</span> NAME &rsaquo;
+                                    </label>
+                                    <input type="text" id="f-name" name="name" placeholder="your_name" autocomplete="off" spellcheck="false" required>
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-prompt" for="f-email">
+                                        <span class="user">you</span><span class="at">@</span><span class="host">internet</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span>
+                                        <span class="cmd">read</span> EMAIL &rsaquo;
+                                    </label>
+                                    <input type="email" id="f-email" name="email" placeholder="your@email.com" autocomplete="off" spellcheck="false" required>
+                                </div>
+                                <div class="form-field form-field-msg">
+                                    <label class="form-prompt form-prompt-top" for="f-msg">
+                                        <span class="user">you</span><span class="at">@</span><span class="host">internet</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span>
+                                        <span class="cmd">cat</span> &rsaquo;&rsaquo; message.txt &rsaquo;
+                                    </label>
+                                    <textarea id="f-msg" name="message" placeholder="type your message here..." rows="4" spellcheck="false" required></textarea>
+                                </div>
+                                <div class="form-submit-row">
+                                    <span class="dim form-hint">// fill all fields and hit SEND</span>
+                                    <button type="submit" class="btn-primary form-send-btn">
+                                        <span class="btn-prefix">$</span> send --message
+                                    </button>
+                                </div>
+                                <div class="form-error" id="form-error" aria-live="polite"></div>
+                            </form>
+                        </div>
+
+                        <div id="form-success" style="display:none;">
+                            <div class="t-line">
+                                <span class="prompt"><span class="user">you</span><span class="at">@</span><span class="host">internet</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span></span>
+                                <span class="cmd">./send_message.py</span>
+                            </div>
+                            <p class="output">Connecting to sharvil.site:443…</p>
+                            <p class="output success">✓  Message queued successfully.</p>
+                            <p class="output dim"># Response expected within 24 hours.</p>
+                            <div class="t-line">
+                                <span class="prompt"><span class="user">you</span><span class="at">@</span><span class="host">internet</span><span class="colon">:</span><span class="path">~</span><span class="symbol">$</span></span>
+                                <span class="cursor">█</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="contact-footer">
+            <div class="cf-nav">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#certs">Certs</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <span class="cf-line">// EOF — sharvil.sagalgile@2026</span>
+            <div class="cf-hex">
+                <span>48 61 63 6B</span>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
